@@ -1,6 +1,9 @@
 package com.example.demo;
 
 import javax.persistence.Entity;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 import javax.persistance.Id;
 
 @Entity
@@ -12,7 +15,14 @@ public class User {
 	private Integer type;
 	private String password;
 	
+
+//  Default Constructor
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
+	// parameterized constructor
 	public User(Integer id, String name, Integer type, String password) {
 		super();
 		this.id = id;
@@ -20,18 +30,7 @@ public class User {
 		this.type = type;
 		this.password = password;
 	}
-	
-	
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
-
-	public UserService() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 	public Integer getId() {
 		return id;
 	}
