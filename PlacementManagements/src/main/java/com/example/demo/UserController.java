@@ -2,12 +2,10 @@ package com.example.demo;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.concurrent.ExecutorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,27 +18,26 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 	
 	@Autowired
-	private ExecutorService service;
-	private ExecutorService User;
+	private UserService service;
 	
 	//RESTful API
 	//creation
 	@PostMapping("/user")
 	public void add(@RequestBody User s)
 	{
-	(User) service).create(s);
+		service.create(s);
 	}
 	//deletion
 	@DeleteMapping("/user/{id}")
 	public void remove(@PathVariable Integer id)
 	{
-		((Object) service).delete(id);
+		service.delete(id);
 	}
 	//Retrieve with all the records
 	@GetMapping("/user")
 	public List<User>list()
 	{
-		return Service.listAll();
+		return service.listAll();
 		
 	}
 	//Retrieve with specific id
@@ -57,10 +54,9 @@ public class UserController {
 			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
 		}
 		
-		
 	}
 	//updation
-	@PutMapping("/User/{id}")
+	@PutMapping("/user/{id}")
 	public ResponseEntity<User> update(@RequestBody User s, @PathVariable Integer id)
 	{
 		try {

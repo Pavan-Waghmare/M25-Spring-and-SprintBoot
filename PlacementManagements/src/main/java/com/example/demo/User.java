@@ -1,10 +1,10 @@
 package com.example.demo;
 
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-import javax.persistance.Id;
+import jakarta.persistence.Id;
 
 @Entity
 public class User {
